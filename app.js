@@ -1,8 +1,8 @@
 // import express package
-import express from "express";
+const express = require("express");
 
 //import path package
-import path from "path";
+const path = require("path");
 
 // Intialize the app
 const app = express();

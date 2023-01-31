@@ -24,3 +24,8 @@ const io = require("socket.io")(server);
 
 // Check for error
 io.on("error", err);
+
+// When connected
+io.on("connection", (socket) => {
+  console.log(socket.id);
+});

@@ -18,3 +18,9 @@ const server = app.listen(port, () => {
   // Print server starting log
   console.log(`Server Listening on ${port}`);
 });
+
+// Socket IO Intialization
+const io = require("socket.io")(server);
+
+// Check for error
+io.on("error", err);

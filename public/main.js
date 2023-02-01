@@ -67,6 +67,8 @@ messageInput.addEventListener("focus", (event) => {
   socket.emit("feedback", {
     feedback: `💬 ${nameInput.value} is typing ...`,
   });
+
+  console.log("message input is foxus");
 });
 
 messageInput.addEventListener("keypress", (event) => {
@@ -79,4 +81,9 @@ messageInput.addEventListener("blur", (event) => {
   socket.emit("feedback", {
     feedback: ``,
   });
+});
+
+socket.on("feedback", (data) => {
+  document.getElementById("feedback-message").innerText = data.feedback;
+  console.log("data", data);
 });

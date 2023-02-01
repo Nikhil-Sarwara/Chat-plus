@@ -62,3 +62,21 @@ function addMessageToFrontend(isOwnMessage, data) {
 function autoScroll() {
   messageBox.scrollTo(0, messageBox.scrollHeight);
 }
+
+messageInput.addEventListener("focus", (event) => {
+  socket.emit("feedback", {
+    feedback: `💬 ${nameInput.value} is typing ...`,
+  });
+});
+
+messageInput.addEventListener("keypress", (event) => {
+  socket.emit("feedback", {
+    feedback: `💬 ${nameInput.value} is typing ...`,
+  });
+});
+
+messageInput.addEventListener("blur", (event) => {
+  socket.emit("feedback", {
+    feedback: ``,
+  });
+});

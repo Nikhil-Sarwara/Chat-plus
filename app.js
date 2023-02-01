@@ -39,4 +39,8 @@ function onConnected(socket) {
 
     io.emit("total", connectedSockets.size);
   });
+
+  socket.on("message", (data) => {
+    socket.broadcast.emit("chat-message", data);
+  });
 }

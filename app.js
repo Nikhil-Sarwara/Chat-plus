@@ -28,13 +28,11 @@ let connectedSockets = new Set();
 io.on("connection", onConnected);
 
 function onConnected(socket) {
-  console.log(socket.id);
   connectedSockets.add(socket.id);
 
   io.emit("total", connectedSockets.size);
 
   socket.on("disconnect", () => {
-    console.log("Socket Disconnected", socket.id);
     connectedSockets.delete(socket.id);
 
     io.emit("total", connectedSockets.size);
